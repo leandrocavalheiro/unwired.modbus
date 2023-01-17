@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+	<TargetFramework>net7.0</TargetFramework>
+	<ImplicitUsings>enable</ImplicitUsings>
+	<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+	<Nullable>enable</Nullable>
+  </PropertyGroup>
+  <PropertyGroup>
+	  <VersionSuffix>0.0.2</VersionSuffix>
+	  <AssemblyVersion Condition=" '$(VersionSuffix)' == '' ">0.0.1</AssemblyVersion>
+	  <AssemblyVersion Condition=" '$(VersionSuffix)' != '' ">$(VersionSuffix)</AssemblyVersion>
+	  <Version Condition=" '$(VersionSuffix)' == '' ">0.0.1</Version>
+	  <Version Condition=" '$(VersionSuffix)' != '' ">$(VersionSuffix)</Version>
+	  <Company>Unwired</Company>
+	  <Authors>Leandro Luiz G. Cavalheiro</Authors>
+	  <Copyright>Copyright ©Unwired</Copyright>
+	  <Product>Unwired.ModBus.Tcp</Product>
+	  <Description>ModBus TCP/IP</Description>
+  </PropertyGroup>
+  <ItemGroup>
+	<None Include="..\.editorconfig" Link=".editorconfig" />
+  </ItemGroup>  
+  <ItemGroup>
+	<PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="7.0.0" />
+  </ItemGroup>
+
+</Project>
