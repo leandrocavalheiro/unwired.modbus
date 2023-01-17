@@ -1,0 +1,7 @@
+﻿[*.cs]
+
+# IDE0010: Adicionar casos ausentes
+dotnet_diagnostic.IDE0010.severity = none
+
+# CS8604: Possível argumento de referência nula.
+dotnet_diagnostic.CS8604.severity = none
