@@ -11,9 +11,9 @@ Developed in .Net 7.
 
 | Status | Item                                         | info            |
 | ------ | -------------------------------------------- | --------------- |
-| ✅     | **FC01 FC02 FC03 FC04 FC05 FC06 FC15 FC016** | Basic Functions |
-| ❌     | **Async Basic Functions**                    |                 |
-| ❌     | **FC23 Sync/Async Tasks**                    |                 |
+|   ✅   | **FC01 FC02 FC03 FC04 FC05 FC06 FC15 FC016** | Basic Functions |
+|   ✅   | **Async Basic Functions**                    |                 |
+|   ❌   | **FC23 Sync/Async Tasks**                    |                 |
 
 > Something is missing? Submit a new `product feature request` using the [issues tracker](https://github.com/leandrocavalheiro/unwired.modbus/issues).
 
