@@ -3,14 +3,16 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33103.184
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unwired.ModBus.Tcp", "Unwired.ModBus.Tcp\Unwired.ModBus.Tcp.csproj", "{916FACCE-EB0A-4774-97F6-87557F869791}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Unwired.ModBus.Tcp", "Unwired.ModBus.Tcp\Unwired.ModBus.Tcp.csproj", "{916FACCE-EB0A-4774-97F6-87557F869791}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{CA30B8EC-8FBA-4294-AEFB-C3DA83DCD9AB}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
+		CHANGELOG.md = CHANGELOG.md
+		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unwired.ModBus.Tcp.Test", "Unwired.ModBus.Tcp.Test\Unwired.ModBus.Tcp.Test.csproj", "{44D0B730-A014-4BCF-BFF4-6378072461CE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Unwired.ModBus.Tcp.Test", "Unwired.ModBus.Tcp.Test\Unwired.ModBus.Tcp.Test.csproj", "{44D0B730-A014-4BCF-BFF4-6378072461CE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
