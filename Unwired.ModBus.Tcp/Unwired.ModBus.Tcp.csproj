@@ -7,7 +7,7 @@
 	<Nullable>enable</Nullable>
   </PropertyGroup>
   <PropertyGroup>
-	  <VersionSuffix>0.0.2</VersionSuffix>
+	  <VersionSuffix>0.0.3</VersionSuffix>
 	  <AssemblyVersion Condition=" '$(VersionSuffix)' == '' ">0.0.1</AssemblyVersion>
 	  <AssemblyVersion Condition=" '$(VersionSuffix)' != '' ">$(VersionSuffix)</AssemblyVersion>
 	  <Version Condition=" '$(VersionSuffix)' == '' ">0.0.1</Version>
@@ -17,6 +17,7 @@
 	  <Copyright>Copyright ©Unwired</Copyright>
 	  <Product>Unwired.ModBus.Tcp</Product>
 	  <Description>ModBus TCP/IP</Description>
+	  <RepositoryUrl>https://github.com/leandrocavalheiro/unwired.modbus</RepositoryUrl>
   </PropertyGroup>
   <ItemGroup>
 	<None Include="..\.editorconfig" Link=".editorconfig" />
