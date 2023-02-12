@@ -50,7 +50,10 @@ if (!successConnect)
 
 var (success, result, errorCode, error) = await _unwiredModBusClient.ReadCoilsAsync(0, 5);
 if (!success)
+{
     Console.WriteLine($"Error: {errorCode} - {error}");
+    return;
+}
 
 
 var valueCoil = result[0];
