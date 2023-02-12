@@ -42,17 +42,16 @@ $ dotnet add package Unwired.ModBus.Tcp
 ```bash
 var myclient = new UnwiredModBusClient();
 var (successConnect, errorCodeConnect, errorConnect) = myclient.ConnectDevice("127.0.0.1", 502, 0x01, swapType: SwapTypeEnum.SwapWordsAndBytes, deviceAlias: "MyModbus");
-if (successConnect)
+if (!successConnect)
 {
     Console.WriteLine($"Error: {errorCodeConnect} - {errorConnect}");
     return;
 }
 
 var (success, result, errorCode, error) = await _unwiredModBusClient.ReadCoilsAsync(0, 5);
-if (success)
-{
+if (!success)
     Console.WriteLine($"Error: {errorCode} - {error}");
-}
+
 
 var valueCoil = result[0];
 ```
