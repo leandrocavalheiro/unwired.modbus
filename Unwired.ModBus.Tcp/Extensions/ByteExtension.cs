@@ -4,9 +4,7 @@ namespace Unwired.ModBus.Tcp.Extensions;
 
 public static class ByteExtension
 {
-
-
-    public static TResult[]? ConvertResult<TResult>(this byte[] values, int totalAddresses = 1, ValueTypeEnum valueType = ValueTypeEnum.Byte, SwapTypeEnum swapType = SwapTypeEnum.NoSwap,  RoundTypeEnum roundType = RoundTypeEnum.None, int precision = 0)
+    public static TResult[] ConvertResult<TResult>(this byte[] values, int totalAddresses = 1, ValueTypeEnum valueType = ValueTypeEnum.Byte, SwapTypeEnum swapType = SwapTypeEnum.NoSwap,  RoundTypeEnum roundType = RoundTypeEnum.None, int precision = 0)
     {
         var resultLength = totalAddresses / (int)valueType;
         if (resultLength == 0)
@@ -94,7 +92,6 @@ public static class ByteExtension
                 if (values.Length <= 3)
                     return values;
 
-
                 for (int count = 0; count < values.Length; count += 4)
                 {
                     result[count] = values[count + 2];
@@ -102,7 +99,6 @@ public static class ByteExtension
 
                     result[count + 2] = values[count];
                     result[count + 3] = values[count + 1];
-
                 }
                 
                 break;
@@ -117,14 +113,11 @@ public static class ByteExtension
 
                     result[count + 2] = values[count + 1];
                     result[count + 3] = values[count];
-
                 }
                 break;
             default:
                 break;
-        }
-
-        
+        }        
         return result;
     }
 }

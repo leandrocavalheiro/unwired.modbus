@@ -48,7 +48,7 @@ if (!successConnect)
     return;
 }
 
-var (success, result, errorCode, error) = await _unwiredModBusClient.ReadCoilsAsync(0, 5);
+var (success, result, errorCode, error) = await myclient.ReadCoilsAsync(0, 5);
 if (!success)
 {
     Console.WriteLine($"Error: {errorCode} - {error}");
