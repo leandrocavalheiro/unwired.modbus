@@ -41,7 +41,100 @@ public static class ObjectExtension
 			return null;
 		}
 	}
-	public static float ToFloat(this object? value)
+    public static int ToInt(this object? value)
+    {
+        try
+        {
+            if(value == null)
+				return 0;
+
+			_ = int.TryParse(value.ToString(), out var result);
+			return result;
+        }
+        catch
+        {
+            return 0;
+        }
+    }
+    public static int? ToIntNullable(this object? value)
+    {
+        try
+        {
+            if (value is null)
+                return null;
+
+            _ = int.TryParse(value.ToString(), out var result);
+            return result;
+
+        }
+        catch
+        {
+            return null;
+        }
+    }
+    public static long ToLong(this object? value)
+    {
+        try
+        {
+            if (value == null)
+                return 0;
+
+            _ = long.TryParse(value.ToString(), out var result);
+            return result;
+        }
+        catch
+        {
+            return 0;
+        }
+    }
+    public static long? ToLongNullable(this object? value)
+    {
+        try
+        {
+            if (value is null)
+                return null;
+
+            _ = long.TryParse(value.ToString(), out var result);
+            return result;
+
+        }
+        catch
+        {
+            return null;
+        }
+    }
+    public static uint ToUInt(this object? value)
+    {
+        try
+        {
+            if (value == null)
+                return 0;
+
+            _ = uint.TryParse(value.ToString(), out var result);
+            return result;
+        }
+        catch
+        {
+            return 0;
+        }
+    }
+    public static uint? ToUIntNullable(this object? value)
+    {
+        try
+        {
+            if (value is null)
+                return null;
+
+            _ = uint.TryParse(value.ToString(), out var result);
+            return result;
+
+        }
+        catch
+        {
+            return null;
+        }
+    }
+    public static float ToFloat(this object? value)
 	{
 		try
 		{
@@ -100,7 +193,22 @@ public static class ObjectExtension
             case ValueTypeEnum.DWord:
                 return value.ToDouble().ToByteArray(swapType);
             default:
-                return value.ToUShort().ToByteArray(swapType);
+
+				var type = value.GetType();
+				switch (type.Name.ToLower())
+				{
+					case "ushort":
+                        return value.ToUShort().ToByteArray(swapType);
+                    case "uint32":
+                        return value.ToUInt().ToByteArray(swapType);
+                    case "int32":
+                        return value.ToInt().ToByteArray(swapType);
+                    case "int64":
+                        return value.ToLong().ToByteArray(swapType);
+                    default:
+						break;
+				}
+				return value.ToUShort().ToByteArray(swapType);
         }
     }
 }

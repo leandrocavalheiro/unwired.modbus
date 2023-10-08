@@ -1,9 +1,9 @@
 ﻿using System.Net;
 using System.Net.Sockets;
-using Unwired.ModBus.Tcp.Interfaces;
-using Unwired.ModBus.Tcp.Extensions;
-using Unwired.ModBus.Tcp.Enumarators;
 using System.Numerics;
+using Unwired.ModBus.Tcp.Enumarators;
+using Unwired.ModBus.Tcp.Extensions;
+using Unwired.ModBus.Tcp.Interfaces;
 
 
 namespace Unwired.ModBus.Tcp.Implementations;
@@ -817,21 +817,21 @@ public class UnwiredModBusClient : IUnwiredModBusClient, IDisposable
             if (valueType == ValueTypeEnum.DWord)
                 valueLength *= 4;
 
-            var transactionIdentifier = _transactionId.ToByteArray();
+            var transactionIdentifier = _transactionId.ToByteArray(valueType, valueType == ValueTypeEnum.Byte ? SwapTypeEnum.SwapBytes : _swapType);
             (var allDataLength, var dataContentLength, var byteCount, var quantityOfOutputs) = GetLength(function, valueLength, valueType);
-            var startAt = startingAddress.ToByteArray();
+            var startAt = startingAddress.ToByteArray(valueType, valueType == ValueTypeEnum.Byte ? SwapTypeEnum.SwapBytes : _swapType);
 
             var data = new byte[allDataLength];
-            data[0] = transactionIdentifier[1];
-            data[1] = transactionIdentifier[0];
+            data[0] = transactionIdentifier[0];
+            data[1] = transactionIdentifier[1];
             data[2] = _protocolIdentifier[1];
             data[3] = _protocolIdentifier[0];
             data[4] = dataContentLength[1];
             data[5] = dataContentLength[0];
             data[6] = _unitIdentifier;
             data[7] = ((int)function).ToByte();
-            data[8] = startAt[1];
-            data[9] = startAt[0];
+            data[8] = startAt[0];
+            data[9] = startAt[1];
             data[10] = quantityOfOutputs[1];
             data[11] = quantityOfOutputs[0];
             data[12] = byteCount;
@@ -949,7 +949,7 @@ public class UnwiredModBusClient : IUnwiredModBusClient, IDisposable
                     break;
 
                 case FunctionEnum.FC16:
-                    allDataLength = (13 + 2 + valuesLength * 2);
+                    allDataLength = (13 + valuesLength * 2);
                     dataContentLength = (7 + valuesLength * 2).ToByteArray();
                     break;
 
