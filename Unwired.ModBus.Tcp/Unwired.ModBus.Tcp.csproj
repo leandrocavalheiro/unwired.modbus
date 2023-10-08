@@ -6,7 +6,7 @@
 	<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
   <PropertyGroup>
-	  <VersionSuffix>0.1.0</VersionSuffix>
+	  <VersionSuffix>0.1.1</VersionSuffix>
 	  <AssemblyVersion Condition=" '$(VersionSuffix)' == '' ">0.0.1</AssemblyVersion>
 	  <AssemblyVersion Condition=" '$(VersionSuffix)' != '' ">$(VersionSuffix)</AssemblyVersion>
 	  <Version Condition=" '$(VersionSuffix)' == '' ">0.0.1</Version>
